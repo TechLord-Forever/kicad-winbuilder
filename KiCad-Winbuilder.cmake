@@ -291,6 +291,7 @@ endmacro()
 # we should:
 
 if( NOT EXISTS "${LOG_DIR}/pacman_initial" )
+    execute_msys2_bash( "pacman --noconfirm --sync --refresh --refresh --sysupgrade --sysupgrade" "${LOG_DIR}/pacman_initial" )
     execute_msys2_bash( "pacman --noconfirm -Sy" "${LOG_DIR}/pacman_initial" )
     execute_msys2_bash( "pacman --noconfirm --needed -S bash pacman pacman-mirrors msys2-runtime" "${LOG_DIR}/pacman_bash" )
     execute_msys2_bash( "pacman --noconfirm --needed -S ca-certificates" "${LOG_DIR}/pacman_bash2" )
